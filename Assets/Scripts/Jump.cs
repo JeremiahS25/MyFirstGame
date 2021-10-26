@@ -6,6 +6,7 @@ public class Jump : MonoBehaviour
 {
     public float jumpforce;
     public Rigidbody reggiebody;
+    public GameObject particle;
 
     // Update is called once per frame
     void Update()
@@ -25,5 +26,9 @@ public class Jump : MonoBehaviour
         {
             print("Up");
         }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        Instantiate(particle, this.transform.position, Quaternion.identity);
     }
 }
